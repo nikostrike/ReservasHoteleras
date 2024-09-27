@@ -4,10 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservas Hoteleras</title>
-    <link rel="stylesheet" href="{% static "estilo.css" %}">
+    <title>Reservas Hoteleras - Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Reservas Hoteleras</h1>
+    <div class="container">
+        <h1>Pacific Reef Hotel</h1>
+        <h2 class="page-title">Reserve su estadía hoy y disfrute sus vacaciones soñadas</h2>
+        <a href="{% url 'search_rooms' %}">Buscar habitaciones</a>
+        <a href="{% url 'mis_reservas' %}">Mis reservas</a>
+    </div>
 </body>
 </html>
