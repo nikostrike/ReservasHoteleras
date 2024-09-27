@@ -1,15 +1,5 @@
 from django.contrib import admin
-from .models import Cliente, Empleado, Hotel, Habitacion, Reserva, Pago, Usuario
-
-@admin.register(Cliente)
-class ClienteAdmin(admin.ModelAdmin):
-    list_display = ('id_cliente', 'rut_cliente', 'nombre_cliente', 'apellido_cliente', 'telefono_cliente')
-    search_fields = ('nombre_cliente', 'apellido_cliente')
-
-@admin.register(Empleado)
-class EmpleadoAdmin(admin.ModelAdmin):
-    list_display = ('id_empleado', 'rut_empleado', 'nombre_empleado', 'apellido_empleado', 'cargo', 'fecha_contratacion')
-    search_fields = ('nombre_empleado', 'apellido_empleado', 'cargo')
+from .models import Hotel, Habitacion, Reserva
 
 @admin.register(Hotel)
 class HotelAdmin(admin.ModelAdmin):
@@ -27,15 +17,3 @@ class ReservaAdmin(admin.ModelAdmin):
     list_display = ('id_reserva', 'id_usuario_usuario', 'id_habitacion_habitacion', 'fecha_inicio', 'fecha_fin', 'precio_total', 'estado')
     list_filter = ('estado',)
     search_fields = ('id_reserva',)
-
-@admin.register(Pago)
-class PagoAdmin(admin.ModelAdmin):
-    list_display = ('id_pago', 'id_reserva_reserva', 'monto', 'fecha_pago', 'metodo', 'estado')
-    list_filter = ('metodo',)
-    search_fields = ('estado',)
-
-@admin.register(Usuario)
-class UsuarioAdmin(admin.ModelAdmin):
-    list_display = ('id_usuario', 'id_cliente_cliente', 'id_empleado_empleado', 'nombre_usuario', 'email', 'fecha_registro', 'tipo', 'activo')
-    list_filter = ('tipo', 'activo')
-    search_fields = ('nombre_usuario', 'email')

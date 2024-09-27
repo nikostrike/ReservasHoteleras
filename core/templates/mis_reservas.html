@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas Hoteleras - Mis Reservas</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2 class="page-title">Mis reservas</h2>
+        {% for reserva in reservas %}
+        <div class="reserva">
+            <p><strong>Hotel:</strong> {{ reserva.id_habitacion_habitacion.id_hotel_hotel.nombre }}</p>
+            <p><strong>Habitación:</strong> {{ reserva.id_habitacion_habitacion.categoria }}</p>
+            <p><strong>Fecha de llegada:</strong> {{ reserva.fecha_inicio }}</p>
+            <p><strong>Fecha de salida:</strong> {{ reserva.fecha_fin }}</p>
+            <p><strong>Estado:</strong> {{ reserva.estado }}</p>
+        </div>
+        {% endfor %}
+
+        <div class="text-center">
+            <a href="{% url 'home' %}" class="btn-home">Home</a>
+        </div>
+    </div>
+</body>
+</html>

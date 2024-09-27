@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas Hoteleras</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="fecha_llegada" value="{{ fecha_llegada }}">
+        <input type="hidden" name="fecha_salida" value="{{ fecha_salida }}">
+        <button type="submit">Confirmar reserva</button>
+    </form>
+</body>
+</html>

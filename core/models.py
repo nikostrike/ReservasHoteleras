@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Cliente(models.Model):
@@ -50,7 +51,7 @@ class Habitacion(models.Model):
 
 class Reserva(models.Model):
     id_reserva = models.AutoField(primary_key=True)
-    id_usuario_usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    id_usuario_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     id_habitacion_habitacion = models.ForeignKey(Habitacion, on_delete=models.CASCADE)
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
