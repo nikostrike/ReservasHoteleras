@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Pacific Reef</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+  </head>
+  <body>
+    <div class="margin">
+      <nav class="nav">
+        <div class="nav-logo">Hotel Pacific Reef</div>
+        <div class="nav-links">
+          <a href="{% url 'habitaciones' %}">Habitaciones</a>
+          <a href="{% url 'mis_reservas' %}">Mis reservas</a>
+          <a href="{% url 'login' %}">Iniciar sesión</a>
+          <button id="langToggle">EN/ES</button>
+        </div>
+      </nav>
+      <main class="container">
+        <div class="rooms-container">
+          <div class="room-category">
+            <div class="room-details">
+              <h2 class="room-title">Habitación Turista</h2>
+              <p class="room-description">
+                Habitación cómoda con todos los elementos esenciales para una
+                estancia agradable.
+              </p>
+              <div
+                class="room-image"
+                style="
+                  background-image: url('../static/img/hab_turista.jpg');
+                  width: 680px;
+                  height: 300px;
+                "
+              ></div>
+              <p > 
+                2 - 3 personas
+              </p>
+              <p >
+                30 m2
+              </p>
+              <p class="room-price" style="font-size: 2rem;">Desde $40.000 /noche</p>
+            </div>
+          </div>
+          <div class="room-category">
+            <div class="room-details">
+              <h2 class="room-title">Habitación Premium</h2>
+              <p class="room-description">
+                Habitación espaciosa con mayor comodidad y vistas
+                impresionantes.
+              </p>
+              <div
+                class="room-image"
+                style="
+                  background-image: url('../static/img/hab_premium.webp');
+                  width: 680px;
+                  height: 300px;
+                "
+              ></div>
+              <p> 
+                2 - 5 personas
+              </p>
+              <p>
+                30 m2
+              </p>
+              <p class="room-price" style="font-size: 2rem;">Desde $70.000 /noche</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

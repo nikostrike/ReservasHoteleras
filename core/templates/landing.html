@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Pacific Reef</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div class="margin">
+      <nav class="nav">
+        <div class="nav-logo">Hotel Pacific Reef</div>
+        <div class="nav-links">
+          <a href="#habitaciones">Habitaciones</a>
+          <a href="{% url 'login' %}">Iniciar sesión</a>
+          <button id="langToggle">EN/ES</button>
+        </div>
+      </nav>
+
+      <section class="hero">
+        <h1>Bienvenidos a Pacific Reef</h1>
+        <h3>Reserve su estadía hoy y disfrute sus vacaciones soñadas</h3>
+      </section>
+
+      <section class="reservation">
+        <h2>Haga su reserva hoy mismo</h2>
+        <input type="date" id="check-in" placeholder="Fecha check-in" />
+        <input type="date" id="check-out" placeholder="Fecha check-out" />
+        <button>Reservar ahora</button>
+      </section>
+
+      <section class="services">
+        <h2>Nuestros servicios</h2>
+        <div class="service-list">
+          <div class="service-item">
+            <img src="{% static 'img/cama.png' %}" alt="Habitaciones" />
+            <h3>Habitaciones lujosas</h3>
+            <h5>Sienta la comodidad de nuestras habitaciones bien equipadas</h5>
+          </div>
+          <div class="service-item">
+            <img src="{% static 'img/cubiertos.png' %}" alt="Restaurant" />
+            <h3>Restaurant de alta cocina</h3>
+            <h5>Saboree nuestra exquisita cocina en nuestros restaurantes</h5>
+          </div>
+          <div class="service-item">
+            <img src="{% static 'img/wifi.png' %}" alt="Wi-Fi" />
+            <h3>Wi-Fi Gratuito</h3>
+            <h5>Manténgase conectado con internet de alta velocidad</h5>
+          </div>
+          <div class="service-item">
+            <img src="{% static 'img/barra.png' %}" alt="Gym" />
+            <h3>Gimnasio full equipo</h3>
+            <h5>Mantenga su rutina de ejercicios</h5>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

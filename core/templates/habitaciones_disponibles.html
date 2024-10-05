@@ -1,30 +1,55 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reservas Hoteleras - Habitaciones Disponibles</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div class="container">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+  </head>
+  <body>
+    <div class="margin">
+      <nav class="nav">
+        <div class="nav-logo">Hotel Pacific Reef</div>
+        <div class="nav-links">
+          <a href="#habitaciones">Habitaciones</a>
+          <a href="{% url 'login' %}">Iniciar sesión</a>
+          <button id="langToggle">EN/ES</button>
+        </div>
+      </nav>
+      <div class="container-rooms">
         <h2 class="page-title">Habitaciones disponibles</h2>
         <div class="room-list">
-            {% for habitacion in habitaciones %}
-            <div class="room-card">
-                <h3>{{ habitacion.categoria }}</h3>
-                <p>Capacidad: {{ habitacion.capacidad }} huéspedes</p>
-                <p>Precio: ${{ habitacion.precio_base }}/noche</p>
-                <form action="{% url 'make_reservation' habitacion.id_habitacion %}" method="post">
-                    {% csrf_token %}
-                    <input type="hidden" name="fecha_llegada" value="{{ fecha_llegada|date:'Y-m-d' }}">
-                    <input type="hidden" name="fecha_salida" value="{{ fecha_salida|date:'Y-m-d' }}">
-                    <button type="submit" class="btn-submit">Reservar ahora</button>
-                </form>
-            </div>
-            {% endfor %}
+          {% for habitacion in habitaciones %}
+          <div class="room-card">
+            <h3>{{ habitacion.categoria }}</h3>
+            <p>Capacidad: {{ habitacion.capacidad }} huéspedes</p>
+            <p>Precio: ${{ habitacion.precio_base }} /noche</p>
+            <form
+              action="{% url 'make_reservation' habitacion.id_habitacion %}"
+              method="post"
+            >
+              {% csrf_token %}
+              <input
+                type="hidden"
+                name="fecha_llegada"
+                value="{{ fecha_llegada|date:'Y-m-d' }}"
+              />
+              <input
+                type="hidden"
+                name="fecha_salida"
+                value="{{ fecha_salida|date:'Y-m-d' }}"
+              />
+              <button type="submit" class="btn-submit">Reservar ahora</button>
+            </form>
+          </div>
+          {% endfor %}
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

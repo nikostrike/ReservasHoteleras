@@ -20,7 +20,9 @@ from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.login_view, name='login'),
+    path('', views.landing_view, name='landing'),
+    path('habitaciones/', views.habitaciones, name='habitaciones'),
+    path('login/', views.login_view, name='login'),
     path('home/', views.home_view, name='home'),
     path('search/', views.search_rooms, name='search_rooms'),
     path('reservation/<int:habitacion_id>/', views.make_reservation, name='make_reservation'),

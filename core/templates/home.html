@@ -1,18 +1,62 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservas Hoteleras - Home</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div class="container">
-        <h1>Pacific Reef Hotel</h1>
-        <h2 class="page-title">Reserve su estadía hoy y disfrute sus vacaciones soñadas</h2>
-        <a href="{% url 'search_rooms' %}">Buscar habitaciones</a>
-        <a href="{% url 'mis_reservas' %}">Mis reservas</a>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Pacific Reef</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+  </head>
+  <body>
+    <div class="margin">
+      <nav class="nav">
+        <div class="nav-logo">Hotel Pacific Reef</div>
+        <div class="nav-links">
+          <a href="#habitaciones">Habitaciones</a>
+          <a href="{% url 'mis_reservas' %}">Mis reservas</a>
+          <a href="{% url 'login' %}">Iniciar sesión</a>
+          <button id="langToggle">EN/ES</button>
+        </div>
+      </nav>
+
+      <section class="hero">
+        <h1>Bienvenidos a Pacific Reef</h1>
+        <h3>Reserve su estadía hoy y disfrute sus vacaciones soñadas</h3>
+      </section>
+
+      <section class="reservation">
+        <h2>Haga su reserva hoy mismo</h2>
+        <div class="form-container">
+          <form method="post" action="{% url 'search_rooms' %}">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="fecha_llegada">Fecha de llegada:</label>
+              <input
+                type="date"
+                id="fecha_llegada"
+                name="fecha_llegada"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="fecha_salida">Fecha de salida:</label>
+              <input
+                type="date"
+                id="fecha_salida"
+                name="fecha_salida"
+                required
+              />
+            </div>
+            <button type="submit" class="btn-submit">
+              Buscar disponibilidad
+            </button>
+          </form>
+        </div>
+      </section>
     </div>
-</body>
+  </body>
 </html>
